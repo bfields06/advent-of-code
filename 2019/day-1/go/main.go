@@ -87,6 +87,6 @@ func main() {
 
 	//fmt.Println(nums)
 	fmt.Printf("Part 1 Fuel Required: %d\n", fuelRequired(nums))
-	fmt.Printf("Part 2 Fuel Required: %d \n", sumCollection(fuelRequiredWithExtra(nums)))
+	fmt.Printf("Part 2 Fuel Required: %d \n", fuelRequiredWithExtra(nums))
 
 }
