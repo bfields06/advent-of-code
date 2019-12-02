@@ -1,10 +1,11 @@
 const fs = require('fs')
 
-var textByLine = fs.readFileSync('input.txt').toString().split('\n')
-console.log(textByLine)
+let total = 0
+let totalWithFuel = 0
 
-numsByLine = textByLine.map(Number)
+var numsByLine = fs.readFileSync('input.txt').toString().split('\n').map(Number)
 
+// function to calculate fuel based on mass
 let fuelByMass = function (mass) {
   fuel = Math.floor(mass / 3) - 2
 
@@ -14,8 +15,6 @@ let fuelByMass = function (mass) {
 }
 
 // Part 1
-let total = 0
-let totalWithFuel = 0
 numsByLine.forEach(element => {
   f = fuelByMass(element)
   total += f
