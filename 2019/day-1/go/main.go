@@ -2,6 +2,8 @@ package main
 
 import (
 	"fmt"
+	fcu "github.com/bfields06/advent-of-code/2019/day-1/go/fuelcounterupper"
+	"github.com/bfields06/advent-of-code/helpers"
 	"io"
 	"os"
 )
@@ -12,46 +14,28 @@ func checkError(e error) {
 	}
 }
 
-func calculateFuelByMass(mass int) int {
-	ret := mass/3 - 2
-	if ret > 0 {
-		return ret
-	}
-
-	return 0
-}
-
-func sumCollection(mass []int) int {
-	total := 0
-	for _, m := range mass {
-		total += m
-	}
-
-	return total
-}
-
 func fuelRequired(nums []int) int {
 	var transform []int
 	for _, val := range nums {
-		transform = append(transform, calculateFuelByMass(val))
+		transform = append(transform, fcu.CalculateFuelByMass(val))
 	}
 
-	return sumCollection(transform)
+	return helpers.SumCollection(transform)
 }
 
 func fuelRequiredWithExtra(nums []int) int {
 	var transform []int
 
 	for _, val := range nums {
-		val = calculateFuelByMass(val)
+		val = fcu.CalculateFuelByMass(val)
 
 		for val > 0 {
 			transform = append(transform, val)
-			val = calculateFuelByMass(val)
+			val = fcu.CalculateFuelByMass(val)
 		}
 	}
 
-	return sumCollection(transform)
+	return helpers.SumCollection(transform)
 }
 
 func readInts(r io.Reader) []int {
