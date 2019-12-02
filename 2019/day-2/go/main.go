@@ -81,7 +81,8 @@ func main() {
 
 	nums := readInts(f)
 
-	fmt.Println(intcode(nums))
+	code := intcode(nums)
+	fmt.Printf("Part 1: %d\n", code[0])
 	var r []int
 	for a := 0; a < 100; a++ {
 		for b := 0; b < 100; b++ {
@@ -90,7 +91,7 @@ func main() {
 
 			r = intcode(nums)
 			if r[0] == 19690720 {
-				fmt.Printf("Found it! %d, %d, %d\n", r[1], r[2], 100*r[1]+r[2])
+				fmt.Printf("Part 2: %d\n", 100*r[1]+r[2])
 				break
 			}
 		}
